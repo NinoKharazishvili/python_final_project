@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Scientist Detail {% endblock %}
+
+{% block content %}
+  <h1>Scientist: {{ science.full_name }}</h1>
+  <p>User: {{ science.user }}</p>
+  <img src="{{ science.image.url }}" alt="{{ science.full_name }}" style="max-width: 300px; max-height: 300px;">
+  <p>Full Name: {{ science.full_name }}</p>
+  <p>Description: {{ science.description }}</p>
+  <p>URL: <a href="{{ science.url }}" target="_blank">{{ science.url }}</a></p>
+  <p>Published: {{ science.published }}</p>
+
+  <br>
+  <p><a href="{% url 'scientist' %}">Go Back</a></p>
+{% endblock %}

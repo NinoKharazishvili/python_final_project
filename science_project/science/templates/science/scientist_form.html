@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {% if form.instance.pk %}
+    Update Scientist
+  {% else %}
+    Create New Scientist
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h1>
+    {% if form.instance.pk %}
+      Update Scientist
+    {% else %}
+      Create New Scientist
+    {% endif %}
+  </h1>
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">
+      {% if form.instance.pk %}
+        Update Scientist
+      {% else %}
+        Add Scientist
+      {% endif %}
+    </button>
+  </form>
+
+  <br>
+  <p><a class="button back" href="{% url 'scientists' %}">Go Back</a></p>
+{% endblock %}

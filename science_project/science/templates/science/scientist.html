@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Scientist Details{% endblock %}
+
+{% block content %}
+<h1>{{ scientist.full_name }}</h1>
+
+<img src="{{ scientist.image.url }}" alt="Image of {{ scientist.full_name }}">
+
+<p>{{ scientist.description }}</p>
+<p><a class="button" href="{{ scientist.url }}" target="_blank">Learn more</a></p>
+<p>Published on: {{ scientist.published }}</p>
+
+<a class="button" href="{% url 'scientist_update' scientist.pk %}">Edit</a>
+<a class="button back" href="{% url 'scientist_delete' scientist.pk %}">Delete</a>
+<br>
+<a class="button back" href="{% url 'scientists' %}">Back to list</a>
+{% endblock %}
